@@ -1,13 +1,16 @@
-import type { HardhatUserConfig } from "hardhat/config";
+// Load environment variables FIRST
 import dotenv from "dotenv";
+dotenv.config();
 
+import type { HardhatUserConfig } from "hardhat/config";
 import hardhatToolboxMochaEthersPlugin from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
 import { configVariable } from "hardhat/config";
 
-// Load environment variables from .env file
-dotenv.config();
+// Import verification plugin to extend HardhatUserConfig type
+import "@nomicfoundation/hardhat-verify";
 
-const config: HardhatUserConfig = {
+
+const config = {
   plugins: [hardhatToolboxMochaEthersPlugin],
   solidity: {
     profiles: {
@@ -41,6 +44,11 @@ const config: HardhatUserConfig = {
       accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
     },
   },
+  verify: {
+    etherscan: {
+      apiKey: process.env.ETHERSCAN_API_KEY,
+    },
+  },
 };
 
-export default config;
+export default config as HardhatUserConfig;

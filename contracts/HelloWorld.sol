@@ -8,7 +8,7 @@ contract HelloWorld {
     event GreetingChanged(string newGreeting, address changedBy);
     
     constructor() {
-        greeting = "Hello, World!";
+        greeting = "Hello World!";
         owner = msg.sender;
     }
     
@@ -21,7 +21,7 @@ contract HelloWorld {
         return greeting;
     }
     
-    function greet() public view returns (string memory) {
+    function greets() public view returns (string memory) {
         return string(abi.encodePacked("Hello, ", greeting));
     }
 }
