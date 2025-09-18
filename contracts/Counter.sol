@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+contract Counter {
+    uint public count;
+    address public constant OWNER = 0x1a7Fe60bdcd67D0365D2a9Df4a107b3C5Bde7055;
+
+    function get() public view returns (uint256) {
+        return count;
+    }
+
+    function inc() public {
+        count += 1;
+    }
+
+    function dec() public {
+        count -= 1;
+    }
+
+    function currentState() public view returns (address) {
+        if (count % 2 == 0) {
+            address sender = msg.sender;
+            return sender;
+        }
+        
+        return OWNER;
+    }
+}
