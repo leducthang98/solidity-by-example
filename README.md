@@ -1,6 +1,7 @@
 How to write and deploy contract:
     write .sol file
     write .ts file in ignition modules for deployment
+    clean: npx hardhat clean
     compile: npx hardhat compile
     deploy & verify: npx hardhat ignition deploy ignition/modules/HelloWorld.ts --network sepolia --verify
 
@@ -18,17 +19,9 @@ Variables
     constant
     immutable: same as constant, but it can be set inside constructor or set value when declared only
 
-Ether and Wei (currency)
-    wei = 1 uint
-    gwei = 10^9 wei
-    ether = 10^9 gwei
-
-Transaction fee + Gas
-    gas: for example 1 transaction executed costs 21000 gas
-    gas price = 30 gwei
-    -> transaction fee = 21000 * 30 (gwei currency)
-    gas limit: max gas user willing to use for the transaction
-
-If/Else
-
-For and While Loop
+Mapping
+    mapping(address => uint256) public myMap -> {addr1: 1}
+    mapping(address => mapping(uint256 => bool)) public nestedMap -> {addr1: {1:true, 2: false}}
+    value in map will be default value, not null
+    set a map: myMap[_addr] = _i
+    delete myMap[_addr]: set value to default value

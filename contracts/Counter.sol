@@ -5,6 +5,12 @@ contract Counter {
     uint public count;
     address public constant OWNER = 0x1a7Fe60bdcd67D0365D2a9Df4a107b3C5Bde7055;
 
+    mapping(address => uint256) public myMap;
+
+    function setMyMap(address _addr, uint256 _value) public {
+        myMap[_addr] = _value;
+    }
+
     function get() public view returns (uint256) {
         return count;
     }
