@@ -25,3 +25,25 @@ Mapping
     value in map will be default value, not null
     set a map: myMap[_addr] = _i
     delete myMap[_addr]: set value to default value
+
+Array
+    default value
+    push
+    pop
+
+Enum
+    enum value will be uint
+
+User Defined Value Types ???
+
+Structs
+
+Data Locations - Storage, Memory and Calldata
+    storage - variable state, stored on the blockchain
+    memory - variable in memory, exists while a function is being called
+    calldata - special data location contains function arguments
+        ex: we have this variable: mapping(uint256 => MyStruct) myStructs; -> in function we can get myStruct in 2 ways:
+            // get a struct from a mapping
+            MyStruct storage myStruct = myStructs[1]; 
+            // create a struct in memory
+            MyStruct memory myMemStruct = MyStruct(0);
