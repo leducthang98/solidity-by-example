@@ -47,3 +47,16 @@ Data Locations - Storage, Memory and Calldata
             MyStruct storage myStruct = myStructs[1]; 
             // create a struct in memory
             MyStruct memory myMemStruct = MyStruct(0);
+
+Inheritance
+    ex: contract B is A
+    can be multi-inheritance
+    inheritance graph
+    super() 
+
+Visibility
+    private: access inside the contract
+    internal: access inside contract and inherited contracts
+    public: access by any contracts and accounts
+    external: can only be called by contracts and accounts
+    note: variable is the same, but dont have EXTERNAL

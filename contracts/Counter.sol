@@ -41,7 +41,7 @@ contract Counter {
         array.push(_value);
     }
 
-    function addPerson(string memory _name, uint256 _age) public{
-        people.push(Person(_name,_age));
+    function addPerson(string memory _name, uint256 _age) public {
+        people.push(Person(_name, _age));
     }
 }
