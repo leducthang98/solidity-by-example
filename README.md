@@ -34,8 +34,6 @@ Array
 Enum
     enum value will be uint
 
-User Defined Value Types ???
-
 Structs
 
 Data Locations - Storage, Memory and Calldata
@@ -60,3 +58,34 @@ Visibility
     public: access by any contracts and accounts
     external: can only be called by contracts and accounts
     note: variable is the same, but dont have EXTERNAL
+
+Gas
+    gas: number of cost gas
+    gasPrice: price of 1 gas in wei
+    gasLimit: limit gas user set
+    fee: gas * gas Price
+    1 native token = 10^18 wei
+
+Merkle Tree
+
+        ABCD
+    AB       CD
+    A B      C D
+
+    leaf: A is leaf
+    sibling node: B is sibling node
+    proof: B, CD is proof
+
+Payable:
+    that means: can be receive Native Token
+
+Fallback function: 
+    fallback if call wrong or send Native token
+
+Sending Ether:
+        function sendViaTransfer(address payable _to) public {
+            _to.transfer(msg.value);
+        }
+    
+    -> this means send the msg.value from 'sender' to '_to'
+
